@@ -1,78 +1,77 @@
-import { FiBarChart2, FiBriefcase, FiFlag, FiDollarSign, FiLock, FiPieChart, FiShield, FiTarget, FiTrendingUp, FiUser } from "react-icons/fi";
+import { FiMic, FiEye, FiSmartphone, FiVolumeX, FiShield, FiHeart, FiClock, FiUsers, FiHeadphones } from "react-icons/fi";
 
 import { IBenefit } from "@/types"
 
 export const benefits: IBenefit[] = [
   {
-
-    title: "All-in-One Club Management",
-    description: "Simplify everything from RSVPs to payments in one modern app designed for social sports clubs.",
+    title: "Voice-First Medication Management",
+    description: "Manage your medications hands-free with intuitive voice commands designed for independence and ease of use.",
     bullets: [
       {
-        title: "Smart RSVPs & Waitlists",
-        description: "Easily manage events with automated confirmations, waitlists, and capacity tracking.",
-        icon: <FiTarget size={26} />
+        title: "Scan & Listen",
+        description: "Simply scan your prescription bottle and listen to medication instructions read aloud clearly.",
+        icon: <FiEye size={26} />
       },
       {
-        title: "Club Payments Made Easy",
-        description: "Collect fees or donations directly in-app with secure transactions.",
-        icon: <FiDollarSign size={26} />
+        title: "Voice Commands",
+        description: "Say 'ClearRx, how do I take my blood pressure medication?' and get instant, clear answers.",
+        icon: <FiMic size={26} />
       },
       {
-        title: "Membership & Coaching Tools",
-        description: "Enable optional club memberships, coaching features, and branded perks.",
-        icon: <FiBriefcase size={26} />
+        title: "AI-Powered Q&A",
+        description: "Ask questions about your medications and get personalized, easy-to-understand responses.",
+        icon: <FiSmartphone size={26} />
       },
       {
-        title: "Tournament & League Management",
-        description: "Run brackets, track standings, and manage full-season leagues—right from your dashboard.",
-        icon: <FiFlag size={26} />
+        title: "Medication Reminders",
+        description: "Set voice-activated alarms and reminders to never miss a dose again.",
+        icon: <FiClock size={26} />
       }
     ],
-    imageSrc: "/images/Mockup Images/Club Store.png"
+    imageSrc: "[Image of elderly person using smartphone to scan prescription bottle with voice interface visible]"
   },
   {
-    title: "Gamified Player Experience",
-    description: "Engage your players with match tracking, challenges, and unlockable perks that keep them coming back.",
+    title: "Designed for Accessibility",
+    description: "Built specifically for individuals with visual impairments and seniors, ensuring everyone can manage their health independently.",
     bullets: [
       {
-        title: "RallyChallenges™",
-        description: "Complete in-app missions to earn points, badges, and exclusive rewards.",
-        icon: <FiTrendingUp size={26} />
+        title: "ADA & WCAG Compliant",
+        description: "Fully accessible design meeting all accessibility standards for visual impairments.",
+        icon: <FiUsers size={26} />
       },
       {
-        title: "AI Match Feedback",
-        description: "Upload match videos and get RallyVision™ stats like consistency graphs and rally lengths.",
-        icon: <FiBarChart2 size={26} />
+        title: "Large Text & High Contrast",
+        description: "Optional visual elements with clear, readable text for those who prefer or need visual assistance.",
+        icon: <FiVolumeX size={26} />
       },
       {
-        title: "Social & Skill Growth",
-        description: "Find partners, log progress, and level up your game with XP and leaderboards.",
-        icon: <FiUser size={26} />
+        title: "Audio-First Experience",
+        description: "Every function works through voice commands, but visual options remain available when needed.",
+        icon: <FiHeadphones size={26} />
       }
     ],
-    imageSrc: "/images/Mockup Images/Gamified.png"
+    imageSrc: "[Image of diverse group including visually impaired person and elderly users testing accessibility features]"
   },
   {
-    title: "Built-In Monetization",
-    description: "Grow your club without the overhead. ClearRX provides tools to drive revenue while simplifying admin.",
+    title: "Secure & HIPAA Compliant",
+    description: "Your health information is protected with enterprise-grade security and full HIPAA compliance for peace of mind.",
     bullets: [
       {
-        title: "Branded Merch Storefronts",
-        description: "Offer custom gear and generate revenue with zero upfront cost.",
+        title: "Two-Factor Authentication",
+        description: "Voice-activated secure login process protects your sensitive medical information.",
         icon: <FiShield size={26} />
       },
       {
-        title: "Analytics & Insights",
-        description: "Track engagement, player stats, and growth trends via your club dashboard.",
-        icon: <FiPieChart size={26} />
+        title: "Healthcare Integration",
+        description: "Connect with pharmacies and healthcare providers for seamless prescription management.",
+        icon: <FiHeart size={26} />
       },
       {
-        title: "Launch Support",
-        description: "Get help onboarding, promoting your club, and driving player signups from day one.",
-        icon: <FiLock size={26} />
+        title: "FDA Database Integration",
+        description: "Access to comprehensive, up-to-date medication information from official FDA sources.",
+        icon: <FiShield size={26} />
       }
     ],
-    imageSrc: "/images/Mockup Images/RSVP.png"
+    imageSrc: "[Image of medical professional consulting with patient using secure tablet interface]"
   }
 ]

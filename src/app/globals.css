@@ -2,26 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Light mode variables */
+/* Light mode variables - Medical theme */
 :root {
 	--background: #ffffff;
-	--foreground: #171717;
-	--primary: #fed835;
-	--secondary: #304fff;
-	--primary-accent: #e5c230;
-	--foreground-accent: #454545;
-	--hero-background: #f3f3f5;
+	--foreground: #1a1a1a;
+	--primary: #0066cc;
+	--secondary: #00a86b;
+	--primary-accent: #004d99;
+	--foreground-accent: #4a5568;
+	--hero-background: #f8faff;
+	--medical-blue: #0066cc;
+	--medical-green: #00a86b;
+	--medical-teal: #20b2aa;
+	--medical-light-blue: #e6f3ff;
+	--medical-light-green: #e6fff2;
+	--text-primary: #2d3748;
+	--text-secondary: #718096;
+	--border-light: #e2e8f0;
+	--surface-white: #ffffff;
+	--surface-light: #f7fafc;
 }
 
 /* Dark mode variables (class-based) */
 .dark {
-	--background: #121212;
+	--background: #1a202c;
 	--foreground: #ffffff;
-	--primary: #fed835;
-	--secondary: #3b82f6;
-	--primary-accent: #facc15;
-	--foreground-accent: #e5e5e5;
-	--hero-background: #1e1e1e;
+	--primary: #4299e1;
+	--secondary: #48bb78;
+	--primary-accent: #3182ce;
+	--foreground-accent: #e2e8f0;
+	--hero-background: #2d3748;
+	--medical-blue: #4299e1;
+	--medical-green: #48bb78;
+	--medical-teal: #4fd1c7;
+	--medical-light-blue: #1a365d;
+	--medical-light-green: #1c4532;
+	--text-primary: #f7fafc;
+	--text-secondary: #a0aec0;
+	--border-light: #4a5568;
+	--surface-white: #2d3748;
+	--surface-light: #1a202c;
 }
 
 /* Ensure scroll behavior works in Safari */
@@ -30,17 +50,16 @@ html {
 	-webkit-font-smoothing: antialiased;
 }
 
-/* Fallbacks for Safari rendering quirks */
+/* Medical typography */
 body {
-	@apply text-lg;
-	color: var(--foreground, #171717);
-	background: var(--background, #ffffff);
-	font-family: "Source Sans 3", sans-serif;
-	/* Safari sometimes ignores optical sizing */
-	font-variation-settings: "wght" 400;
-	font-style: normal;
+	@apply text-base leading-relaxed;
+	color: var(--text-primary);
+	background: var(--background);
+	font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-weight: 400;
 	margin: 0;
 	padding: 0;
+	line-height: 1.6;
 }
 
 /* Fix text-wrap issues in older Safari */
@@ -52,10 +71,9 @@ body {
 	}
 }
 
-.manrope {
-	font-family: "Manrope", sans-serif;
-	font-style: normal;
-	font-variation-settings: "wght" 600;
+.medical-font {
+	font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-weight: 500;
 }
 
 h1,
@@ -64,9 +82,47 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Manrope", sans-serif;
-	font-style: normal;
-	font-variation-settings: "wght" 700;
+	font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-weight: 600;
+	color: var(--text-primary);
+	line-height: 1.2;
+	letter-spacing: -0.025em;
+}
+
+h1 {
+	@apply text-4xl md:text-5xl lg:text-6xl;
+	font-weight: 700;
+}
+
+h2 {
+	@apply text-3xl md:text-4xl;
+	font-weight: 600;
+}
+
+h3 {
+	@apply text-2xl md:text-3xl;
+	font-weight: 600;
+}
+
+/* Medical card styles */
+.medical-card {
+	@apply bg-white rounded-2xl shadow-sm border border-gray-100 p-6 transition-all duration-300 hover:shadow-lg hover:border-blue-200;
+}
+
+.medical-gradient {
+	background: linear-gradient(135deg, var(--medical-light-blue) 0%, var(--medical-light-green) 100%);
+}
+
+.medical-button {
+	@apply inline-flex items-center px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105;
+}
+
+.medical-button-primary {
+	@apply medical-button bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl;
+}
+
+.medical-button-secondary {
+	@apply medical-button bg-green-600 text-white hover:bg-green-700 shadow-lg hover:shadow-xl;
 }
 
 /* SVG fixes for Safari layout */
@@ -80,4 +136,24 @@ h6 {
 /* Margin fixes for Safari not honoring :last-of-type properly */
 .benefit-section:last-of-type > div {
 	@apply mb-10;
+}
+
+/* Medical section spacing */
+.medical-section {
+	@apply py-16 md:py-24;
+}
+
+/* Medical hero styles */
+.medical-hero {
+	background: linear-gradient(135deg, #f8faff 0%, #e6f3ff 50%, #e6fff2 100%);
+}
+
+/* Accessibility enhancements */
+.focus-visible:focus {
+	@apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* Medical icons */
+.medical-icon {
+	@apply w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 rounded-xl flex items-center justify-center text-white shadow-lg;
 }

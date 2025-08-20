@@ -1,5 +1,5 @@
 export const heroDetails = {
-    heading: 'Smart, Secure, Simple Financial Management',
-    subheading: 'From effortless budgeting to real-time investment insights, ClearRX puts you in control of your money like never before',
-    centerImageSrc: '/images/Logo.png',
+    heading: 'Voice-Activated Medication Management',
+    subheading: 'Empowering individuals with visual impairments and seniors to manage their medications independently through voice commands and AI assistance',
+    centerImageSrc: '/images/clearrx-logo.svg',
 }

@@ -1,33 +1,21 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ctaDetails } from '@/data/cta';
-import AppStoreButton from './AppStoreButton';
-import PlayStoreButton from './PlayStoreButton';
+import Container from './Container';
 
 const WEBHOOK_URL = 'https://prod-69.westus.logic.azure.com:443/workflows/e6558ca33ec14493ae800efb2d84d5e3/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=9IHmuYEn4q98L528_bKeSAq_Fv-g2SyFB-05kaRcTiQ';
-
-const baseInputStyles =
-    'w-full rounded-xl bg-white/10 border border-white/20 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#007CFF] placeholder-white/70 transition appearance-none';
 
 const CTA = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
-        category: 'Player',
-        anticipatedFeature: '',
-        clubName: '',
-        clubSize: '',
-        clubLocation: '',
-        sponsorType: '',
         message: ''
     });
 
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
-    const { category } = formData;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -36,7 +24,7 @@ const CTA = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!formData.name || !formData.email || !formData.category || !formData.anticipatedFeature) {
+        if (!formData.name || !formData.email) {
             alert('Please fill out required fields.');
             return;
         }
@@ -63,143 +51,120 @@ const CTA = () => {
     };
 
     return (
-        <section id="cta" className="relative mt-10 mb-5 lg:my-20 w-full overflow-hidden">
-            {/* Grid lines with radial mask (matches Hero) */}
-            <div className="absolute inset-0 -z-20">
-                <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#ffffff1a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff1a_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]" />
+        <section id="cta" className="relative medical-section bg-gradient-to-br from-blue-600 via-emerald-600 to-teal-600 overflow-hidden">
+            {/* Medical pattern overlay */}
+            <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[size:40px_40px]"></div>
             </div>
 
-            {/* Radial overlay */}
-            <div className="absolute inset-0 -z-10 rounded-3xl bg-[radial-gradient(circle_600px_at_50%_500px,#1C1C02,transparent)]" />
+            {/* Floating medical elements */}
+            <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute top-20 left-10 w-20 h-20 bg-white/5 rounded-full animate-pulse"></div>
+                <div className="absolute bottom-20 right-20 w-16 h-16 bg-white/5 rounded-full animate-pulse delay-1000"></div>
+                <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-white/5 rounded-full animate-pulse delay-500"></div>
+            </div>
 
-            {/* Blue background */}
-            <div className="absolute inset-0 z-0 h-full w-full rounded-3xl bg-gradient-to-br from-[#001733] via-[#002B5C] to-[#004B94] opacity-95" />
-
-            <div className="relative z-10 h-full w-full mx-auto py-12 sm:py-20 px-6">
-
-                <div className="flex flex-col items-center text-white text-center max-w-4xl mx-auto">
-                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold mb-4 max-w-2xl">
-                        {ctaDetails.heading}
-                    </h2>
-                    <p className="mx-auto max-w-xl md:px-5 mb-6">{ctaDetails.subheading}</p>
-
-                    <div className="flex flex-col sm:flex-row items-center sm:gap-4 mb-10">
-                        <AppStoreButton />
-                        <PlayStoreButton />
+            <Container>
+                <div className="relative z-10 text-center text-white max-w-4xl mx-auto">
+                    <div className="mb-8">
+                        <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full text-sm font-medium mb-6">
+                            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            </svg>
+                            Limited Pilot Program Spots Available
+                        </div>
+                        
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                            {ctaDetails.heading}
+                        </h2>
+                        <p className="text-xl opacity-90 max-w-2xl mx-auto">
+                            {ctaDetails.subheading}
+                        </p>
                     </div>
 
                     {submitted ? (
-                        <div className="text-center bg-white text-black p-6 rounded-xl shadow-xl">
-                            <h3 className="text-xl  font-semibold mb-2">Thanks for reaching out!</h3>
-                            <p>We'll be in touch soon.</p>
+                        <div className="bg-white rounded-2xl p-8 shadow-xl max-w-md mx-auto">
+                            <div className="text-center">
+                                <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-2xl font-bold text-gray-900 mb-2">Thanks for your interest!</h3>
+                                <p className="text-gray-600">We'll be in touch soon about the ClearRx pilot program.</p>
+                            </div>
                         </div>
                     ) : (
-                        <form
-                            onSubmit={handleSubmit}
-                            className="w-full bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 space-y-5"
-                        >
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <input
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    placeholder="Your name *"
-                                    className={baseInputStyles}
-                                />
-                                <input
-                                    name="email"
-                                    type="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    placeholder="you@example.com *"
-                                    className={baseInputStyles}
-                                />
-                                <input
-                                    name="phone"
-                                    type="tel"
-                                    value={formData.phone}
-                                    onChange={handleChange}
-                                    placeholder="Phone"
-                                    className={baseInputStyles}
-                                />
-                                <div className="flex flex-col gap-2 text-left">
-                                    <span className="text-sm font-medium mb-1">I am a...</span>
-                                    <div className="flex gap-4">
-                                        {['Player', 'Club', 'Sponsor'].map(option => (
-                                            <label key={option} className="inline-flex items-center gap-2">
-                                                <input
-                                                    type="radio"
-                                                    name="category"
-                                                    value={option}
-                                                    checked={formData.category === option}
-                                                    onChange={handleChange}
-                                                    className="form-radio text-[#007CFF] focus:ring-[#007CFF]"
-                                                />
-                                                <span>{option}</span>
-                                            </label>
-                                        ))}
-                                    </div>
+                        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        placeholder="Your name *"
+                                        className="w-full rounded-xl bg-white/20 border border-white/30 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/50 placeholder-white/70 transition"
+                                        required
+                                    />
+                                    <input
+                                        name="email"
+                                        type="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        placeholder="you@example.com *"
+                                        className="w-full rounded-xl bg-white/20 border border-white/30 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/50 placeholder-white/70 transition"
+                                        required
+                                    />
+                                    <input
+                                        name="phone"
+                                        type="tel"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        placeholder="Phone"
+                                        className="w-full rounded-xl bg-white/20 border border-white/30 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/50 placeholder-white/70 transition"
+                                    />
                                 </div>
-                            </div>
 
-                            <AnimatePresence mode="wait">
-                                {category === 'Club' && (
-                                    <motion.div key="club" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <div>
-                                            <label className="block text-sm font-medium mb-1">Club Name</label>
-                                            <input name="clubName" value={formData.clubName} onChange={handleChange} className={baseInputStyles} />
+                                <div>
+                                    <label className="block text-sm font-medium mb-2 text-white/90">Message</label>
+                                    <textarea 
+                                        name="message" 
+                                        value={formData.message} 
+                                        onChange={handleChange} 
+                                        rows={4} 
+                                        className="w-full rounded-xl bg-white/20 border border-white/30 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/50 placeholder-white/70 transition" 
+                                        placeholder="Tell us about your interest in ClearRx or how you'd like to get involved..."
+                                    />
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    disabled={loading}
+                                    className="w-full py-4 rounded-xl bg-white text-blue-600 font-semibold text-lg transition-all duration-300 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-105"
+                                >
+                                    {loading ? (
+                                        <div className="flex items-center justify-center">
+                                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                            </svg>
+                                            Submitting...
                                         </div>
-                                        <div>
-                                            <label className="block text-sm font-medium mb-1">Club Size</label>
-                                            <input name="clubSize" value={formData.clubSize} onChange={handleChange} className={baseInputStyles} />
+                                    ) : (
+                                        <div className="flex items-center justify-center">
+                                            <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+                                            </svg>
+                                            Send Message
                                         </div>
-                                        <div>
-                                            <label className="block text-sm font-medium mb-1">Club Location</label>
-                                            <input name="clubLocation" value={formData.clubLocation} onChange={handleChange} className={baseInputStyles} />
-                                        </div>
-                                    </motion.div>
-                                )}
-                                {category === 'Sponsor' && (
-                                    <motion.div key="sponsor" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                                        <label className="block text-sm font-medium mb-1">Sponsor Type</label>
-                                        <input name="sponsorType" value={formData.sponsorType} onChange={handleChange} className={baseInputStyles} />
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-
-                            <div>
-                                {/* <label className="block text-sm font-medium mb-1">Most Anticipated Feature *</label> */}
-                                <select name="anticipatedFeature" value={formData.anticipatedFeature} onChange={handleChange} className={baseInputStyles}>
-                                    <option value="">Select Most Anticipated Feature</option>
-                                    <option value="Match Tracking">Match Tracking</option>
-                                    <option value="Challenges & Rewards">Challenges & Rewards</option>
-                                    <option value="AI Match Feedback">AI Match Feedback</option>
-                                    <option value="Club Dashboard">Club Dashboard</option>
-                                    <option value="Branded Storefronts">Branded Storefronts</option>
-                                    <option value="Analytics & Growth">Analytics & Growth</option>
-                                    <option value="Sponsor Exposure">Sponsor Exposure</option>
-                                    <option value="Tournament & League Management">Tournament & League Management</option>
-
-                                </select>
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium mb-1">Additional Comments</label>
-                                <textarea name="message" value={formData.message} onChange={handleChange} rows={4} className={baseInputStyles} placeholder="Let us know anything else!" />
-                            </div>
-
-                            <button
-                                type="submit"
-                                disabled={loading}
-                                className="w-full py-3 rounded-xl bg-white text-[#001733] font-semibold transition hover:bg-gray-100 disabled:opacity-50"
-                            >
-                                {loading ? 'Submitting...' : 'Submit'}
-                            </button>
-                        </form>
-                    )}
-                </div>
+                                    )}
+                                </button>
+                            </form>
+                        </div>
+                )}
             </div>
-        </section>
+        </Container>
+    </section>
     );
 };
 

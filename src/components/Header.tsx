@@ -18,30 +18,40 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className={`bg-transparent z-50 mx-auto w-[95%] rounded-b-2xl pb-[5px] ${className}`}>
-      <Container className="!px-0">
-        <nav className="shadow-md bg-[#001B33] text-white mx-auto flex justify-between items-center py-2 pr-8 pl-5 md:py-10 rounded-b-xl bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]">
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/favicon.ico" alt="Logo" width={40} height={40} className="h-10 w-10" />
-            <span className="manrope text-2xl font-semibold text-white cursor-pointer">
+    <header className={`bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 mx-auto w-full rounded-none shadow-sm ${className}`}>
+      <Container className="!px-6">
+        <nav className="flex justify-between items-center py-4">
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <span className="text-xl font-bold text-gray-900">
               {siteDetails.siteName}
             </span>
           </Link>
 
           <div className="md:hidden">
-            <button onClick={toggleMenu}>
+            <button 
+              onClick={toggleMenu}
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            >
               {isOpen ? (
-                <HiOutlineXMark className="text-white w-6 h-6" />
+                <HiOutlineXMark className="text-gray-700 w-6 h-6" />
               ) : (
-                <HiBars3 className="text-white w-6 h-6" />
+                <HiBars3 className="text-gray-700 w-6 h-6" />
               )}
             </button>
           </div>
 
-          <ul className="hidden md:flex flex-wrap items-center space-x-6">
+          <ul className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
               <li key={item.text}>
-                <Link href={item.url} className="text-white hover:text-gray-300 transition-colors text-2xl">
+                <Link 
+                  href={item.url} 
+                  className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-base"
+                >
                   {item.text}
                 </Link>
               </li>
@@ -49,27 +59,32 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
             <li>
               <Link
                 href="#cta"
-                className="text-black bg-primary hover:bg-primary-accent px-6 py-1 rounded-full transition-colors text-2xl"
+                className="medical-button-primary text-sm"
               >
-                Coming Soon
+                Join Pilot Program
               </Link>
             </li>
-            {/* <li><ThemeToggle /></li> */}
           </ul>
         </nav>
 
         {isOpen && (
-          <div className="md:hidden bg-[#001B33] text-white px-5 pt-4 pb-6 space-y-4 mt-3 rounded-3xl">
+          <div className="md:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-4">
             {menuItems.map((item) => (
-              <Link key={item.text} href={item.url} className="block text-white hover:text-gray-300">
+              <Link 
+                key={item.text} 
+                href={item.url} 
+                className="block text-gray-700 hover:text-blue-600 font-medium py-2"
+                onClick={() => setIsOpen(false)}
+              >
                 {item.text}
               </Link>
             ))}
             <Link
               href="#cta"
-              className="block text-center text-black bg-primary hover:bg-primary-accent px-6 py-2 rounded-full transition-colors"
+              className="block text-center medical-button-primary w-full text-sm"
+              onClick={() => setIsOpen(false)}
             >
-              Coming Soon
+              Join Pilot Program
             </Link>
           </div>
         )}

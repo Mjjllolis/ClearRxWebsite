@@ -1,9 +1,9 @@
 export const siteDetails = {
-    siteName: 'ClearRX',
-    siteUrl: 'https://ClearRX-omega.vercel.app/',
+    siteName: 'ClearRx',
+    siteUrl: 'https://myclearrx.com/',
     metadata: {
-        title: 'ClearRX - All-in-One Platform for Clubs and Players',
-        description: 'ClearRX empowers businesses with cutting-edge technology solutions to drive success and efficiency.',
+        title: 'ClearRx - Voice-Activated Medication Management for Visually Impaired',
+        description: 'ClearRx helps individuals with visual impairments and seniors manage their medications independently through voice commands, AI assistance, and accessible technology.',
     },
     language: 'en-us',
     locale: 'en-US',

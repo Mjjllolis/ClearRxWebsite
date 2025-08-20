@@ -7,33 +7,28 @@ export const footerDetails: {
     telephone: string;
     socials: ISocials;
 } = {
-    subheading: "Empowering players and clubs with cutting-edge technology solutions.",
+    subheading: "Empowering individuals with visual impairments and seniors to manage their medications independently.",
     quickLinks: [
         {
             text: "Features",
             url: "#features"
         },
         {
-            text: "Pricing",
-            url: "#pricing"
-        }// },
-        // {
-        //     text: "Testimonials",
-        //     url: "#testimonials"
-        // }
+            text: "How It Works",
+            url: "#how-it-works"
+        },
+        {
+            text: "Accessibility",
+            url: "#accessibility"
+        },
+        {
+            text: "Contact",
+            url: "#contact"
+        }
     ],
-    //email: 'jared.serpas@ClearRX.com',
-    //telephone: '+1 (123) 456-7890',
+    email: 'hello@myclearrx.com',
+    telephone: '',
     socials: {
-        // github: 'https://github.com',
-        // x: 'https://twitter.com/x',
-        // twitter: 'https://twitter.com/Twitter',
-        // facebook: 'https://facebook.com',
-        // youtube: 'https://youtube.com',
-        // linkedin: 'https://www.linkedin.com',
-        // threads: 'https://www.threads.net',
-        instagram: 'https://www.instagram.com/Rally_Sphere',
+        // Future social media links will be added here
     },
-    email: "",
-    telephone: ""
 }
