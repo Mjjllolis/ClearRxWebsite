@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Header from '@/components/Header';
 
 import AppStoreButton from './AppStoreButton';
 import PlayStoreButton from './PlayStoreButton';
@@ -12,7 +11,6 @@ import { heroDetails } from '@/data/hero';
 const Hero: React.FC = () => {
   return (
     <>
-      <Header className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] z-50" />
       <section
         id="hero"
         className="relative min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-emerald-50 overflow-hidden"

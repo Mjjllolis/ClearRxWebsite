@@ -5,6 +5,7 @@ import { Source_Sans_3, Manrope } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { siteDetails } from '@/data/siteDetails';
+import { Analytics } from "@vercel/analytics/next"
 
 import "./globals.css";
 
@@ -48,9 +49,10 @@ export default function RootLayout({
       >
         {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
         <div className="relative">
-          <Header />
+          <Header className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] z-50" />
           <main className="relative z-0">
             {children}
+            <Analytics />
           </main>
         </div>
         <Footer />
