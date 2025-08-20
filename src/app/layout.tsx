@@ -48,6 +48,7 @@ export default function RootLayout({
       >
         {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
         <div className="relative">
+          <Header />
           <main className="relative z-0">
             {children}
           </main>
