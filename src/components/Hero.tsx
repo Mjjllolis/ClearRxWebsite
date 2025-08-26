@@ -7,24 +7,25 @@ import AppStoreButton from './AppStoreButton';
 import PlayStoreButton from './PlayStoreButton';
 
 import { heroDetails } from '@/data/hero';
+import { siteDetails } from '@/data/siteDetails';
 
 const Hero: React.FC = () => {
   return (
     <>
       <section
         id="hero"
-        className="relative min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-emerald-50 overflow-hidden"
+        className="relative min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 overflow-hidden"
       >
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-40">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgb(59_130_246/0.1)_1px,transparent_0)] bg-[size:24px_24px]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgb(233_30_99/0.1)_1px,transparent_0)] bg-[size:24px_24px]"></div>
         </div>
 
         {/* Floating medical icons */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-16 h-16 bg-blue-100 rounded-full opacity-60 animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-12 h-12 bg-emerald-100 rounded-full opacity-40 animate-pulse delay-1000"></div>
-          <div className="absolute bottom-40 left-20 w-14 h-14 bg-teal-100 rounded-full opacity-50 animate-pulse delay-500"></div>
+          <div className="absolute top-20 left-10 w-16 h-16 bg-pink-200 rounded-full opacity-60 animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-12 h-12 bg-rose-200 rounded-full opacity-40 animate-pulse delay-1000"></div>
+          <div className="absolute bottom-40 left-20 w-14 h-14 bg-pink-300 rounded-full opacity-50 animate-pulse delay-500"></div>
         </div>
 
         <div className="relative z-10 min-h-screen flex items-center">
@@ -33,49 +34,48 @@ const Hero: React.FC = () => {
               {/* Left Column - Content */}
               <div className="space-y-8">
                 <div className="space-y-6">
-                  <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                  <div className="inline-flex items-center px-4 py-2 bg-pink-100 text-pink-800 rounded-full text-sm font-medium">
                     <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    HIPAA Compliant • FDA Approved Database
+                    {siteDetails.tagline.toUpperCase()}
                   </div>
                   
                   <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                    Voice-Activated
-                    <span className="block text-blue-600">Medication</span>
-                    <span className="block text-emerald-600">Management</span>
+                    <span className="block text-pink-600">Scan</span>
+                    <span className="block text-rose-600">Listen</span>
+                    <span className="block text-pink-700">Thrive</span>
                   </h1>
                   
                   <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
-                    Empowering individuals with visual impairments and seniors to manage their medications 
-                    <span className="font-semibold text-gray-800">independently</span> through voice commands and AI assistance.
+                    {siteDetails.mission}
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center">
+                    <div className="w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center">
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <span className="text-gray-700">Voice-first design for complete accessibility</span>
+                    <span className="text-gray-700">Scan your medication and automatically hear information</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center">
+                    <div className="w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center">
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <span className="text-gray-700">AI-powered medication guidance</span>
+                    <span className="text-gray-700">Ask questions about your medications</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center">
+                    <div className="w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center">
                       <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <span className="text-gray-700">Enterprise-grade security & privacy</span>
+                    <span className="text-gray-700">Set reminders and thrive with your health</span>
                   </div>
                 </div>
 
@@ -103,7 +103,7 @@ const Hero: React.FC = () => {
                     <div className="space-y-6">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-xl flex items-center justify-center">
+                          <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center">
                             <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                               <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
@@ -113,28 +113,32 @@ const Hero: React.FC = () => {
                             <p className="text-sm text-gray-500">Voice Assistant</p>
                           </div>
                         </div>
-                        <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
+                        <div className="w-3 h-3 bg-pink-400 rounded-full animate-pulse"></div>
                       </div>
                       
                       <div className="space-y-4">
-                        <div className="bg-blue-50 rounded-2xl p-4">
-                          <p className="text-sm text-blue-800 font-medium">"ClearRx, how do I take my blood pressure medication?"</p>
+                        <div className="bg-pink-50 rounded-2xl p-4">
+                          <p className="text-sm text-pink-800 font-medium">"ClearRx, how do I take my blood pressure medication?"</p>
                         </div>
-                        <div className="bg-emerald-50 rounded-2xl p-4">
-                          <p className="text-sm text-emerald-800">Take one tablet of Lisinopril 10mg by mouth once daily in the morning. Do not skip doses and avoid potassium supplements.</p>
+                        <div className="bg-rose-50 rounded-2xl p-4">
+                          <p className="text-sm text-rose-800">Take one tablet of Lisinopril 10mg by mouth once daily in the morning. Do not skip doses and avoid potassium supplements.</p>
                         </div>
                       </div>
                       
                       <div className="text-center py-4">
-                        <p className="text-xs text-gray-500 italic">[Image of elderly person using smartphone with voice interface and medication bottles in background]</p>
+                        <img 
+                          src="/images/GeneralMonitorWhitebackground.jpg" 
+                          alt="Medical monitoring device with clear display" 
+                          className="w-full h-32 object-cover rounded-lg"
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Background decorative elements */}
-                <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-blue-400 to-emerald-400 rounded-full opacity-20 blur-2xl"></div>
-                <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-gradient-to-br from-emerald-400 to-teal-400 rounded-full opacity-15 blur-2xl"></div>
+                <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-pink-400 to-rose-400 rounded-full opacity-20 blur-2xl"></div>
+                <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-gradient-to-br from-rose-400 to-pink-400 rounded-full opacity-15 blur-2xl"></div>
               </div>
             </div>
           </div>

@@ -5,17 +5,17 @@ import { footerDetails } from '@/data/footer';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-gradient-to-r from-blue-600 via-green-600 to-teal-600 text-white">
+        <footer className="bg-gradient-to-r from-pink-600 via-rose-600 to-pink-700 text-white">
             <div className="max-w-7xl mx-auto px-6 py-16">
                 <div className="grid md:grid-cols-3 gap-8 items-start">
                     {/* Logo and Description */}
                     <div className="md:col-span-1">
                         <Link href="/" className="flex items-center space-x-3 mb-4">
-                            <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-lg">
-                                <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
+                            <img 
+                                src="/images/Logo.png" 
+                                alt="ClearRx Logo" 
+                                className="w-10 h-10 object-contain"
+                            />
                             <span className="text-xl font-bold text-white">
                                 {siteDetails.siteName}
                             </span>

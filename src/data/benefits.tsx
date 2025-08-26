@@ -28,7 +28,7 @@ export const benefits: IBenefit[] = [
         icon: <FiClock size={26} />
       }
     ],
-    imageSrc: "[Image of elderly person using smartphone to scan prescription bottle with voice interface visible]"
+    imageSrc: "/images/BlindUsingPhone.jpg"
   },
   {
     title: "Designed for Accessibility",
@@ -50,7 +50,7 @@ export const benefits: IBenefit[] = [
         icon: <FiHeadphones size={26} />
       }
     ],
-    imageSrc: "[Image of diverse group including visually impaired person and elderly users testing accessibility features]"
+    imageSrc: "/images/GeneralMonitorWhitebackground.jpg"
   },
   {
     title: "Secure & HIPAA Compliant",
@@ -72,6 +72,6 @@ export const benefits: IBenefit[] = [
         icon: <FiShield size={26} />
       }
     ],
-    imageSrc: "[Image of medical professional consulting with patient using secure tablet interface]"
+    imageSrc: "/images/DoctorOnTablet.jpg"
   }
 ]

@@ -51,41 +51,41 @@ const CTA = () => {
     };
 
     return (
-        <section id="cta" className="relative medical-section bg-gradient-to-br from-blue-600 via-emerald-600 to-teal-600 overflow-hidden">
+        <section id="cta" className="relative medical-section bg-white overflow-hidden">
             {/* Medical pattern overlay */}
-            <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[size:40px_40px]"></div>
+            <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgb(233_30_99/0.3)_1px,transparent_0)] bg-[size:40px_40px]"></div>
             </div>
 
             {/* Floating medical elements */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-20 left-10 w-20 h-20 bg-white/5 rounded-full animate-pulse"></div>
-                <div className="absolute bottom-20 right-20 w-16 h-16 bg-white/5 rounded-full animate-pulse delay-1000"></div>
-                <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-white/5 rounded-full animate-pulse delay-500"></div>
+                <div className="absolute top-20 left-10 w-20 h-20 bg-pink-100 rounded-full animate-pulse opacity-30"></div>
+                <div className="absolute bottom-20 right-20 w-16 h-16 bg-rose-100 rounded-full animate-pulse delay-1000 opacity-30"></div>
+                <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-pink-200 rounded-full animate-pulse delay-500 opacity-30"></div>
             </div>
 
             <Container>
-                <div className="relative z-10 text-center text-white max-w-4xl mx-auto">
+                <div className="relative z-10 text-center max-w-4xl mx-auto">
                     <div className="mb-8">
-                        <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full text-sm font-medium mb-6">
+                        <div className="inline-flex items-center px-4 py-2 bg-pink-100 text-pink-800 rounded-full text-sm font-medium mb-6">
                             <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                             </svg>
                             Limited Pilot Program Spots Available
                         </div>
                         
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
                             {ctaDetails.heading}
                         </h2>
-                        <p className="text-xl opacity-90 max-w-2xl mx-auto">
+                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                             {ctaDetails.subheading}
                         </p>
                     </div>
 
                     {submitted ? (
-                        <div className="bg-white rounded-2xl p-8 shadow-xl max-w-md mx-auto">
+                        <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 max-w-md mx-auto">
                             <div className="text-center">
-                                <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <div className="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                     </svg>
@@ -95,7 +95,7 @@ const CTA = () => {
                             </div>
                         </div>
                     ) : (
-                        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
+                        <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 max-w-2xl mx-auto">
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <input
@@ -103,7 +103,7 @@ const CTA = () => {
                                         value={formData.name}
                                         onChange={handleChange}
                                         placeholder="Your name *"
-                                        className="w-full rounded-xl bg-white/20 border border-white/30 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/50 placeholder-white/70 transition"
+                                        className="w-full rounded-xl bg-gray-50 border border-gray-200 text-gray-900 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 placeholder-gray-500 transition-all duration-200"
                                         required
                                     />
                                     <input
@@ -112,27 +112,27 @@ const CTA = () => {
                                         value={formData.email}
                                         onChange={handleChange}
                                         placeholder="you@example.com *"
-                                        className="w-full rounded-xl bg-white/20 border border-white/30 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/50 placeholder-white/70 transition"
+                                        className="w-full rounded-xl bg-gray-50 border border-gray-200 text-gray-900 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 placeholder-gray-500 transition-all duration-200"
                                         required
                                     />
-                                    <input
-                                        name="phone"
-                                        type="tel"
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                        placeholder="Phone"
-                                        className="w-full rounded-xl bg-white/20 border border-white/30 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/50 placeholder-white/70 transition"
-                                    />
                                 </div>
+                                <input
+                                    name="phone"
+                                    type="tel"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    placeholder="Phone"
+                                    className="w-full rounded-xl bg-gray-50 border border-gray-200 text-gray-900 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 placeholder-gray-500 transition-all duration-200"
+                                />
 
                                 <div>
-                                    <label className="block text-sm font-medium mb-2 text-white/90">Message</label>
+                                    <label className="block text-sm font-medium mb-2 text-gray-700">Message</label>
                                     <textarea 
                                         name="message" 
                                         value={formData.message} 
                                         onChange={handleChange} 
                                         rows={4} 
-                                        className="w-full rounded-xl bg-white/20 border border-white/30 text-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white/50 placeholder-white/70 transition" 
+                                        className="w-full rounded-xl bg-gray-50 border border-gray-200 text-gray-900 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-pink-500 placeholder-gray-500 transition-all duration-200" 
                                         placeholder="Tell us about your interest in ClearRx or how you'd like to get involved..."
                                     />
                                 </div>
@@ -140,11 +140,11 @@ const CTA = () => {
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="w-full py-4 rounded-xl bg-white text-blue-600 font-semibold text-lg transition-all duration-300 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-105"
+                                    className="w-full py-4 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold text-lg transition-all duration-300 hover:from-pink-600 hover:to-rose-600 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-105"
                                 >
                                     {loading ? (
                                         <div className="flex items-center justify-center">
-                                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                             </svg>
@@ -161,7 +161,7 @@ const CTA = () => {
                                 </button>
                             </form>
                         </div>
-                )}
+                    )}
             </div>
         </Container>
     </section>

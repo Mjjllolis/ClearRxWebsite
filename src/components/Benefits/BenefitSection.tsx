@@ -10,6 +10,7 @@ import { IBenefit } from "@/types";
 interface Props {
     benefit: IBenefit;
     imageAtRight?: boolean;
+    index: number;
 }
 
 const containerVariants: Variants = {
@@ -46,56 +47,126 @@ export const childVariants = {
     },
 };
 
-const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
+const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight, index }) => {
     const { title, description, imageSrc, bullets } = benefit;
+    
+    // Define different gradient overlays for each section
+    const overlayGradients = [
+        "from-pink-600/95 via-pink-500/90 to-transparent", // Voice-First
+        "from-rose-600/95 via-rose-500/90 to-transparent", // Accessibility  
+        "from-pink-800/95 via-pink-700/90 to-transparent"  // Security
+    ];
+    
+    const textColors = [
+        "text-pink-600", // Voice-First
+        "text-rose-600", // Accessibility
+        "text-pink-800"  // Security
+    ];
+    
+    const currentGradient = overlayGradients[index] || overlayGradients[0];
+    const currentTextColor = textColors[index] || textColors[0];
 
     return (
-        <section className="benefit-section">
+        <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0">
+                <img 
+                    src={imageSrc} 
+                    alt={title}
+                    className="w-full h-full object-cover"
+                />
+                {/* Gradient Overlay */}
+                <div className={clsx(
+                    "absolute inset-0 z-10",
+                    imageAtRight ? "bg-gradient-to-l" : "bg-gradient-to-r",
+                    currentGradient
+                )}></div>
+            </div>
+            
+            {/* Content */}
             <motion.div
-                className="flex flex-wrap flex-col items-center justify-center gap-2 lg:flex-row lg:gap-20 lg:flex-nowrap mb-24"
+                className="relative z-20 h-full flex items-center"
                 variants={containerVariants}
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true }}
             >
-                <div
-                    className={clsx("flex flex-wrap items-center w-full max-w-lg", { "justify-start": imageAtRight, "lg:order-1 justify-end": !imageAtRight })}
-                    
-                >
-                    <div className="w-full  text-center lg:text-left ">
-                        <motion.div
-                            className="flex flex-col w-full"
-                            variants={childVariants}
-                        >
-                            <SectionTitle>
-                                <h3 className="lg:max-w-2xl">
+                <div className="container mx-auto px-6 lg:px-8">
+                    <div className={clsx(
+                        "grid lg:grid-cols-2 gap-16 items-center",
+                        imageAtRight ? "" : "lg:grid-cols-[1fr_0.5fr]"
+                    )}>
+                        {/* Text Content */}
+                        <div className={clsx(
+                            "space-y-8",
+                            imageAtRight ? "lg:order-2" : ""
+                        )}>
+                            <motion.div
+                                className="bg-white/95 backdrop-blur-sm rounded-3xl p-10 shadow-2xl border border-white/20"
+                                variants={childVariants}
+                            >
+                                <h3 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
                                     {title}
                                 </h3>
-                            </SectionTitle>
-
-                            <p className="mt-1.5 mx-auto lg:ml-0 leading-normal text-foreground-accent">
-                                {description}
-                            </p>
-                        </motion.div>
-
-                        <div className="mx-auto lg:ml-0 w-full">
-                            {bullets.map((item, index) => (
-                                <BenefitBullet key={index} title={item.title} icon={item.icon} description={item.description} />
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                <div className={clsx("mt-5 lg:mt-0", { "lg:order-2": imageAtRight })}>
-                    <div className={clsx("w-fit flex", { "justify-start": imageAtRight, "justify-end": !imageAtRight })}>
-                        <div className="w-96 h-64 bg-gradient-to-br from-blue-50 to-green-50 border-2 border-green-200 rounded-2xl flex items-center justify-center p-6 shadow-lg">
-                            <div className="text-center">
-                                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                    </svg>
+                                <p className="text-xl text-gray-700 leading-relaxed mb-8">
+                                    {description}
+                                </p>
+                                
+                                {/* Feature Grid */}
+                                <div className="grid sm:grid-cols-2 gap-6">
+                                    {bullets.map((bullet, bulletIndex) => (
+                                        <div key={bulletIndex} className="space-y-3">
+                                            <div className="flex items-center space-x-3">
+                                                <div className={clsx(
+                                                    "w-12 h-12 rounded-xl flex items-center justify-center text-white",
+                                                    index === 0 ? "bg-pink-500" : 
+                                                    index === 1 ? "bg-rose-500" : "bg-pink-700"
+                                                )}>
+                                                    {bullet.icon}
+                                                </div>
+                                                <h4 className={clsx(
+                                                    "text-lg font-bold",
+                                                    currentTextColor
+                                                )}>
+                                                    {bullet.title}
+                                                </h4>
+                                            </div>
+                                            <p className="text-gray-600 leading-relaxed text-sm pl-15">
+                                                {bullet.description}
+                                            </p>
+                                        </div>
+                                    ))}
                                 </div>
-                                <p className="text-sm text-gray-700 font-medium leading-relaxed">{imageSrc}</p>
+                            </motion.div>
+                        </div>
+                        
+                        {/* Visual Accent - Optional decorative element */}
+                        <div className={clsx(
+                            "hidden lg:block",
+                            imageAtRight ? "lg:order-1" : ""
+                        )}>
+                            <div className="relative">
+                                {/* Floating decorative element */}
+                                <div className="absolute inset-0 bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20 transform rotate-6"></div>
+                                <div className="relative bg-white/20 rounded-3xl p-8 backdrop-blur-sm border border-white/30 transform -rotate-3">
+                                    <div className="text-center">
+                                        <div className={clsx(
+                                            "w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4",
+                                            index === 0 ? "bg-pink-500" : 
+                                            index === 1 ? "bg-rose-500" : "bg-pink-700"
+                                        )}>
+                                            <span className="text-4xl font-bold text-white">
+                                                {index + 1}
+                                            </span>
+                                        </div>
+                                        <p className="text-white/90 font-semibold text-lg">
+                                            {title.split(' ')[0]}
+                                        </p>
+                                        <p className="text-white/90 font-semibold text-lg">
+                                            {title.split(' ').slice(1).join(' ')}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -7,7 +7,7 @@ export const footerDetails: {
     telephone: string;
     socials: ISocials;
 } = {
-    subheading: "Empowering individuals with visual impairments and seniors to manage their medications independently.",
+    subheading: "Our mission is to make medication labels universally accessible, empowering individuals of all abilities to easily understand and manage their prescriptions.",
     quickLinks: [
         {
             text: "Features",
