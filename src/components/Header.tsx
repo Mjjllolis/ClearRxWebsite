@@ -20,12 +20,12 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
   return (
     <header className={`bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 mx-auto w-full rounded-none shadow-sm ${className}`}>
       <Container className="!px-6">
-        <nav className="flex justify-between items-center py-4">
+        <nav className="flex justify-between items-center py-5 md:py-4">
           <Link href="/" className="flex items-center space-x-3">
             <img 
               src="/images/Logo.png" 
               alt="ClearRx Logo" 
-              className="w-10 h-10 object-contain"
+              className="w-12 h-12 md:w-14 md:h-14 object-contain"
             />
             <span className="text-xl font-bold text-gray-900">
               {siteDetails.siteName}

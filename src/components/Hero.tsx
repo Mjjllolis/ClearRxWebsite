@@ -28,11 +28,11 @@ const Hero: React.FC = () => {
           <div className="absolute bottom-40 left-20 w-14 h-14 bg-pink-300 rounded-full opacity-50 animate-pulse delay-500"></div>
         </div>
 
-        <div className="relative z-10 min-h-screen flex items-center">
+        <div className="relative z-10 min-h-screen flex items-center pt-32 md:pt-20">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Column - Content */}
-              <div className="space-y-8">
+              <div className="space-y-8 text-center md:text-left">
                 <div className="space-y-6">
                   <div className="inline-flex items-center px-4 py-2 bg-pink-100 text-pink-800 rounded-full text-sm font-medium">
                     <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -42,9 +42,9 @@ const Hero: React.FC = () => {
                   </div>
                   
                   <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                    <span className="block text-pink-600">Scan</span>
-                    <span className="block text-rose-600">Listen</span>
-                    <span className="block text-pink-700">Thrive</span>
+                    <span className="text-pink-600">Scan </span>
+                    <span className="text-rose-600">Listen </span>
+                    <span className="text-pink-700">Thrive</span>
                   </h1>
                   
                   <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
@@ -103,10 +103,12 @@ const Hero: React.FC = () => {
                     <div className="space-y-6">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
-                          <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center">
-                            <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
+                          <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center bg-white shadow-sm">
+                            <img 
+                              src="/images/Logo.png" 
+                              alt="ClearRx Logo" 
+                              className="w-10 h-10 object-contain"
+                            />
                           </div>
                           <div>
                             <h3 className="font-semibold text-gray-900">ClearRx</h3>
@@ -125,11 +127,11 @@ const Hero: React.FC = () => {
                         </div>
                       </div>
                       
-                      <div className="text-center py-4">
+                      <div className="text-center py-6">
                         <img 
                           src="/images/GeneralMonitorWhitebackground.jpg" 
                           alt="Medical monitoring device with clear display" 
-                          className="w-full h-32 object-cover rounded-lg"
+                          className="w-full h-48 object-cover rounded-lg shadow-md"
                         />
                       </div>
                     </div>

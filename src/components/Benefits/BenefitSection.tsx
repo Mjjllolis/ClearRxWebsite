@@ -85,7 +85,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight, index }) => {
             
             {/* Content */}
             <motion.div
-                className="relative z-20 h-full flex items-center"
+                className="relative z-20 h-full flex items-center py-24 md:py-20"
                 variants={containerVariants}
                 initial="offscreen"
                 whileInView="onscreen"
@@ -102,13 +102,14 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight, index }) => {
                             imageAtRight ? "lg:order-2" : ""
                         )}>
                             <motion.div
-                                className="bg-white/95 backdrop-blur-sm rounded-3xl p-10 shadow-2xl border border-white/20"
+                                className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-2xl border border-white/20"
                                 variants={childVariants}
                             >
-                                <h3 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                                {/* Only show title on mobile */}
+                                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:hidden">
                                     {title}
                                 </h3>
-                                <p className="text-xl text-gray-700 leading-relaxed mb-8">
+                                <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
                                     {description}
                                 </p>
                                 
@@ -150,21 +151,9 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight, index }) => {
                                 <div className="absolute inset-0 bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20 transform rotate-6"></div>
                                 <div className="relative bg-white/20 rounded-3xl p-8 backdrop-blur-sm border border-white/30 transform -rotate-3">
                                     <div className="text-center">
-                                        <div className={clsx(
-                                            "w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4",
-                                            index === 0 ? "bg-pink-500" : 
-                                            index === 1 ? "bg-rose-500" : "bg-pink-700"
-                                        )}>
-                                            <span className="text-4xl font-bold text-white">
-                                                {index + 1}
-                                            </span>
-                                        </div>
-                                        <p className="text-white/90 font-semibold text-lg">
-                                            {title.split(' ')[0]}
-                                        </p>
-                                        <p className="text-white/90 font-semibold text-lg">
-                                            {title.split(' ').slice(1).join(' ')}
-                                        </p>
+                                        <h4 className="text-white/95 font-bold text-2xl leading-tight">
+                                            {title}
+                                        </h4>
                                     </div>
                                 </div>
                             </div>

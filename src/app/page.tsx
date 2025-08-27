@@ -31,10 +31,23 @@ const HomePage: React.FC = () => {
             <div className="relative mb-20">
               <div className="flex items-center justify-center">
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 bg-pink-500 rounded-full border-4 border-white shadow-lg flex items-center justify-center z-10">
-                  <span className="text-2xl font-bold text-white">1</span>
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
+                  </svg>
                 </div>
               </div>
-              <div className="grid lg:grid-cols-2 gap-12 items-center mt-8">
+              
+              {/* Mobile Title */}
+              <div className="md:hidden text-center mt-8 mb-6">
+                <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 mx-4">
+                  <h3 className="text-3xl font-bold text-pink-600">Scan</h3>
+                  <p className="text-lg text-gray-600 mt-2">
+                    Use your phone camera to scan your prescription bottle. ClearRx automatically recognizes your medication and <strong className="text-pink-600">immediately reads the basic information aloud</strong> - no questions needed!
+                  </p>
+                </div>
+              </div>
+              
+              <div className="hidden md:grid lg:grid-cols-2 gap-12 items-center mt-8">
                 <div className="lg:text-right">
                   <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 lg:ml-auto lg:max-w-lg">
                     <h3 className="text-3xl font-bold text-pink-600 mb-4">Scan</h3>
@@ -54,16 +67,41 @@ const HomePage: React.FC = () => {
                   </div>
                 </div>
               </div>
+              
+              {/* Mobile Image */}
+              <div className="md:hidden mt-6">
+                <div className="relative">
+                  <img 
+                    src="/images/PrescriptionBottle.jpg" 
+                    alt="Person scanning prescription bottle with smartphone"
+                    className="w-full h-64 object-cover rounded-2xl shadow-lg"
+                  />
+                  <div className="absolute inset-0 bg-pink-500/10 rounded-2xl"></div>
+                </div>
+              </div>
             </div>
             
             {/* Step 2 - Listen */}
             <div className="relative mb-20">
               <div className="flex items-center justify-center">
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 bg-rose-500 rounded-full border-4 border-white shadow-lg flex items-center justify-center z-10">
-                  <span className="text-2xl font-bold text-white">2</span>
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zM5.5 9.643a.75.75 0 00-1.5 0V10c0 3.06 2.29 5.585 5.25 5.954V17.5h-1.5a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-1.5v-1.546A6.001 6.001 0 0016 10v-.357a.75.75 0 00-1.5 0V10a4.5 4.5 0 01-9 0v-.357z" />
+                  </svg>
                 </div>
               </div>
-              <div className="grid lg:grid-cols-2 gap-12 items-center mt-8">
+              
+              {/* Mobile Title */}
+              <div className="md:hidden text-center mt-8 mb-6">
+                <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 mx-4">
+                  <h3 className="text-3xl font-bold text-rose-600">Listen</h3>
+                  <p className="text-lg text-gray-600 mt-2">
+                    Ask specific questions like <strong className="text-rose-600">"How many blood pressure pills do I take today?"</strong> and get clear, personalized spoken instructions about your medications.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="hidden md:grid lg:grid-cols-2 gap-12 items-center mt-8">
                 <div className="lg:order-2 lg:text-left">
                   <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 lg:mr-auto lg:max-w-lg">
                     <h3 className="text-3xl font-bold text-rose-600 mb-4">Listen</h3>
@@ -77,10 +115,22 @@ const HomePage: React.FC = () => {
                     <img 
                       src="/images/BlindUsingPhone.jpg" 
                       alt="Person using smartphone with voice interface"
-                      className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                      className="w-full h-80 object-cover object-top rounded-2xl shadow-lg"
                     />
                     <div className="absolute inset-0 bg-rose-500/10 rounded-2xl"></div>
                   </div>
+                </div>
+              </div>
+              
+              {/* Mobile Image */}
+              <div className="md:hidden mt-6">
+                <div className="relative">
+                  <img 
+                    src="/images/BlindUsingPhone.jpg" 
+                    alt="Person using smartphone with voice interface"
+                    className="w-full h-64 object-cover object-top rounded-2xl shadow-lg"
+                  />
+                  <div className="absolute inset-0 bg-rose-500/10 rounded-2xl"></div>
                 </div>
               </div>
             </div>
@@ -89,10 +139,23 @@ const HomePage: React.FC = () => {
             <div className="relative">
               <div className="flex items-center justify-center">
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 bg-pink-700 rounded-full border-4 border-white shadow-lg flex items-center justify-center z-10">
-                  <span className="text-2xl font-bold text-white">3</span>
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                  </svg>
                 </div>
               </div>
-              <div className="grid lg:grid-cols-2 gap-12 items-center mt-8">
+              
+              {/* Mobile Title */}
+              <div className="md:hidden text-center mt-8 mb-6">
+                <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 mx-4">
+                  <h3 className="text-3xl font-bold text-pink-700">Thrive</h3>
+                  <p className="text-lg text-gray-600 mt-2">
+                    Set voice-activated reminders and receive medication alerts to never miss a dose. <strong className="text-pink-700">Thrive</strong> with confidence in your medication management.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="hidden md:grid lg:grid-cols-2 gap-12 items-center mt-8">
                 <div className="lg:text-right">
                   <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 lg:ml-auto lg:max-w-lg">
                     <h3 className="text-3xl font-bold text-pink-700 mb-4">Thrive</h3>
@@ -110,6 +173,18 @@ const HomePage: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-pink-700/10 rounded-2xl"></div>
                   </div>
+                </div>
+              </div>
+              
+              {/* Mobile Image */}
+              <div className="md:hidden mt-6">
+                <div className="relative">
+                  <img 
+                    src="/images/TakingPill.jpg" 
+                    alt="Person confidently taking medication with reminder notification"
+                    className="w-full h-64 object-cover rounded-2xl shadow-lg"
+                  />
+                  <div className="absolute inset-0 bg-pink-700/10 rounded-2xl"></div>
                 </div>
               </div>
             </div>
@@ -201,7 +276,11 @@ const HomePage: React.FC = () => {
               </div>
               
               <div className="mt-8 p-4 bg-gray-50 rounded-xl">
-                <p className="text-xs text-gray-500 italic text-center">[Image of diverse pilot program participants in healthcare setting]</p>
+                <img 
+                  src="/images/DoctorOnTablet.jpg" 
+                  alt="Healthcare professional using digital tablet in clinical setting" 
+                  className="w-full h-32 object-cover rounded-lg"
+                />
               </div>
             </div>
           </div>
