@@ -8,6 +8,23 @@ Please check out the documentation below to get started.
 
 ---
 
+## Environment Variables
+
+ClearRx uses Resend for email functionality. Set up your environment:
+
+1. **Copy the template**: `cp .env.example .env.local`
+2. **Get Resend API key**: Sign up at [Resend](https://resend.com) and create an API key
+3. **Verify your domain**: Add and verify your domain in Resend dashboard
+4. **Update `.env.local`**:
+   ```env
+   RESEND_API_KEY=your_actual_api_key_here
+   ADMIN_EMAIL=your_admin_email@yourdomain.com
+   ```
+
+**Security Note**: `.env.local` is gitignored and won't be committed to version control.
+
+---
+
 ## About ClearRx
 
 ClearRx is a revolutionary mobile application designed specifically for individuals with visual impairments and seniors to manage their medications safely and independently. The app features:
@@ -75,8 +92,12 @@ Before starting, make sure you have the following installed:
 ### Steps
 
 1. **Install dependencies**: Run `npm install`
-2. **Run the development server**: `npm run dev`
-3. **View your project**: Open [localhost:3000](http://localhost:3000)
+2. **Set up environment variables**:
+   - Copy `.env.example` to `.env.local`
+   - Add your Resend API key to `.env.local`
+   - Verify your domain in Resend dashboard
+3. **Run the development server**: `npm run dev`
+4. **View your project**: Open [localhost:3000](http://localhost:3000)
 
 ---
 
