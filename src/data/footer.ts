@@ -20,13 +20,9 @@ export const footerDetails: {
         {
             text: "Accessibility",
             url: "#accessibility"
-        },
-        {
-            text: "Contact",
-            url: "#contact"
         }
     ],
-    email: 'hello@myclearrx.com',
+    email: 'admin@myclearrx.com',
     telephone: '',
     socials: {
         // Future social media links will be added here

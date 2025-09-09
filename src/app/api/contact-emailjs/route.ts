@@ -1,0 +1,1 @@
+// This EmailJS route has been removed - using Resend instead\n// Contact form now uses /api/contact with admin@myclearrx.com\n

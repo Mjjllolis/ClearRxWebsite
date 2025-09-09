@@ -58,7 +58,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
             ))}
             <li>
               <Link
-                href="#cta"
+                href="#contact"
                 className="medical-button-primary text-sm"
               >
                 Join Pilot Program
@@ -80,7 +80,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
               </Link>
             ))}
             <Link
-              href="#cta"
+              href="#contact"
               className="block text-center medical-button-primary w-full text-sm"
               onClick={() => setIsOpen(false)}
             >

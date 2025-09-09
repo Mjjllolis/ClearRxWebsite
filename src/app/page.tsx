@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import Benefits from "@/components/Benefits/Benefits";
 import Container from "@/components/Container";
-import CTA from "@/components/CTA";
+import ContactSection from "@/components/ContactSection";
 import { siteDetails } from '@/data/siteDetails';
 
 const HomePage: React.FC = () => {
@@ -287,8 +287,8 @@ const HomePage: React.FC = () => {
         </Container>
       </section>
 
-      {/* CTA Section */}
-      <CTA />
+      {/* Contact Section */}
+      <ContactSection />
     </>
   );
 };
