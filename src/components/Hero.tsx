@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
     <>
       <section
         id="hero"
-        className="relative min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 overflow-hidden"
+        className="relative min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 overflow-hidden pb-12 md:pb-0"
       >
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-40">

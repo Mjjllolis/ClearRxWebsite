@@ -67,7 +67,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight, index }) => {
     const currentTextColor = textColors[index] || textColors[0];
 
     return (
-        <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
+        <section className="relative min-h-[700px] md:h-[60vh] md:min-h-[500px] overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0">
                 <img 
@@ -85,7 +85,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight, index }) => {
             
             {/* Content */}
             <motion.div
-                className="relative z-20 h-full flex items-center py-24 md:py-20"
+                className="relative z-20 min-h-full flex items-center py-16 md:py-20"
                 variants={containerVariants}
                 initial="offscreen"
                 whileInView="onscreen"
@@ -102,7 +102,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight, index }) => {
                             imageAtRight ? "lg:order-2" : ""
                         )}>
                             <motion.div
-                                className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-2xl border border-white/20"
+                                className="bg-white/95 backdrop-blur-sm rounded-3xl p-6 md:p-10 shadow-2xl border border-white/20"
                                 variants={childVariants}
                             >
                                 {/* Only show title on mobile */}
